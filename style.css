@@ -1,11 +1,14 @@
 :root {
     --background-color: #1e2129;
-    --primary-color: #85888f;
+    --primary-color: #b6bbc5;
     --secondary-color: #9a9fd0;
     --tetriary-color: #5e6b89;
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding-top: 3rem;
     background-color: var(--background-color);
@@ -18,8 +21,13 @@ body ul {
     padding: 0;
 }
 
-.footer h1 {
+main {
+    flex: 1;
+}
+
+.footer h3 {
     color: var(--secondary-color);
+    font-size: 1.5rem;
 }
 
 /* About me style */
@@ -28,9 +36,9 @@ body ul {
     padding-left: 2rem;
     padding-right: 2rem;
     max-width: 900px;
-    margin:4rem auto;
+    margin: 2rem 1rem;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
     align-items: center;
     text-align: left;
@@ -42,6 +50,7 @@ body ul {
 
 .about-image{
     justify-self: end;
+    order: -1;
 }
 
 .about-image img {
@@ -52,21 +61,10 @@ body ul {
     height: auto;
 }
 
-th {
-    color: var(--primary-color);
-    font-size: 20px;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
-}
-
-td {
-    color: var(--secondary-color);
-    font-size: 18px;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
-}
-
-th:first-child,
-td:first-child {
-    padding-right: 1rem;
+.about-text p {
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 nav {
@@ -102,23 +100,11 @@ nav a:hover {
     background: #1976d275;
 }
 
-@media (max-width: 700px){
-    .about-layout {
-        grid-template-columns: 1fr;
-        margin: 2rem 1rem;
-    }
-
-    .about-image {
-        order: -1;
-    }
-}
-
 /* CV Page Styles */
-
 
 .cv-page {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
     max-width: 1100px;
     margin: 0 auto;
@@ -157,17 +143,6 @@ nav a:hover {
     border-bottom: 1px solid var(--primary-color);
 }
 
-
-@media (max-width: 768px) {
-    .cv-page {
-        grid-template-columns: 1fr;
-    }
-
-    .cv-sidebar,
-    .cv-content {
-        padding: 0 1rem;
-    }
-}
 
 /* Portfolio Page Styles */
 
@@ -254,8 +229,31 @@ nav a:hover {
     font-weight: bold;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 768px) {
+    .about-layout {
+        grid-template-columns: 2fr 1fr;
+        margin: 4rem auto;
+    }
+
+    .about-image {
+        order: 0;
+    }
+
+    .cv-page {
+        grid-template-columns: 300px 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .about-layout {
+        max-width: 1000px;
+    }
+
+    .cv-page {
+        grid-template-columns: 340px 1fr;
+    }
+
     .portfolio-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
